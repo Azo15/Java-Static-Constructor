@@ -6,12 +6,13 @@ public class Ogrenci {
 
     private static int counter = 0;
     private static String college = "SOFTWARE";
+    private static int minPasswordLength = 6;
 
     // Varsayılan constructor
     public Ogrenci() {
         this.name = "Bilinmiyor";
         this.ogrenciNo = counter;
-        this.password = "1234";
+        this.password = "123456"; // min 6 karakter
         this.loggedIn = false;
         counter++;
     }
@@ -33,6 +34,11 @@ public class Ogrenci {
         } else {
             return false;
         }
+    }
+
+    // Şifre uzunluğu kontrolü
+    public boolean validatePassword(String enteredPassword) {
+        return enteredPassword.length() >= minPasswordLength;
     }
 
     // Static getter'lar
